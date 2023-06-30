@@ -22,7 +22,7 @@ Route::get('/', function () {
 });
 
 Route::resource('questionaire',QuestionaireController::class)->except('destroy');
-Route::resource('teachers',TeacherController::class);
-Route::resource('criteria',CriteriaController::class);
-Route::resource('questions',QuestionController::class);
+Route::resource('teachers',TeacherController::class)->except('destroy');
+Route::resource('criteria',CriteriaController::class)->except('destroy');
+Route::resource('questions',QuestionController::class)->except('destroy');
 

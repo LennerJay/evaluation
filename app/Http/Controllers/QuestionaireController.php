@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\QuestionaireRequest;
 use App\Models\Questionaire;
-use Illuminate\Http\Request;
 
 class QuestionaireController extends Controller
 {

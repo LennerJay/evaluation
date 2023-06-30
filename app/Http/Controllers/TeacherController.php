@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\TeacherRequest;
 use App\Models\Criteria;
 use App\Models\Teacher;
-use Illuminate\Http\Request;
 
 class TeacherController extends Controller
 {
@@ -23,15 +23,16 @@ class TeacherController extends Controller
      */
     public function create()
     {
-        //
+        return view('teacher.form');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(TeacherRequest $request)
     {
-        //
+        Teacher::create($request->validated());
+        return redirect()->route('teachers.index')->with('success','Teacher Created successfully');
     }
 
     /**
@@ -53,15 +54,16 @@ class TeacherController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        return view('teacher.form');
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(TeacherRequest $request, Teacher $teacher)
     {
-        //
+        $teacher->update($request->validated());
+        return view('teacher.index')->with('success','Teacher Updated successfully');
     }
 
     /**

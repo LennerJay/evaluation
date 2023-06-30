@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Builder;
 class Teacher extends Model
 {
     use HasFactory;
-    
+    protected $fillable = ['name','department'];
     public function evaluation_ratings()
     {
         return $this->hasMany(Evaluation_rating::class);

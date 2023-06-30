@@ -9,9 +9,7 @@
                 <p class="data-title">Criteria: {{ $c->description }}</p>
             </div>
             <div class="mt-4">
-                <div class="data-rating">
-                    Rating: {{ number_format($c->evaluation_ratings_avg_rating,2) }}
-                </div>
+                <x-rating :rating="$c->evaluation_ratings_avg_rating"/>
             </div>
         </div>
         <div class="mt-3">
@@ -25,9 +23,7 @@
                                 <a href="" class="data-title">{{ $key+1 }}. {{ rtrim($question->question,'.')}} ?</a>
                             </div>
                             <div>
-                                <div class="data-rating">
-                                    Rating: {{ number_format($question->evaluation_ratings_avg_rating,2) }}
-                                </div>
+                                <x-rating :rating="$question->evaluation_ratings_avg_rating"/>
                             </div>
                         </div>
                     </div>

@@ -1,7 +1,13 @@
 @extends('layout.app')
 
 @section('content')
-<h1 class="data-title">Teachers</h1>
+<div class="flex flex-wrap items-center justify-between mb-4">
+    <h1 class="data-title ">Teachers</h1>
+    <a href="{{ route('teachers.create') }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
+        Add Teacher
+      </a>
+</div>
+
 <ul>
     @forelse ($teachers as $teacher)
         <li class="mb-4">
@@ -12,9 +18,7 @@
                         <span class="data-description">{{ $teacher->department }}</span>
                     </div>
                     <div>
-                        <div class="data-rating">
-                            Rate: {{ number_format($teacher->evaluation_ratings_avg_rating,2) }}
-                        </div>
+                        <x-Rating :rating="$teacher->evaluation_ratings_avg_rating" />
                     </div>
                 </div>
             </div>
